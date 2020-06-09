@@ -1,0 +1,17 @@
+SystelUtill.run "C:\Program Files\Internet Explorer\IEXPLORER.EXE"
+Browser("Browser").Navigate "https://www.phptravels.net/home/"
+Browser("Browser").Page("Flight Reservation").WebButton("FLIGHT").Click
+Browser("Browser").Page("Flight Reservation").WebRadioButton("Round Trip").Click
+Browser("Browser").Page("Flight Reservation").WebList("Class").Select "Business"
+Browser("Browser").Page("Flight Reservation").WebComboBox("From").Select "Mumbai"
+Browser("Browser").Page("Flight Reservation").WebComboBox("To").Select "Delhi"
+Browser("Browser").Page("Flight Reservation").WebObject("Depart").Type"07062020"
+Browser("Browser").Page("Flight Reservation").WebObject("Return").Type"10062020"
+Browser("Browser").Page("Flight Reservation").WebImage("Adult").Click 1,3
+Browser("Browser").Page("Flight Reservation").WebImage("Child").Click 1,3
+Browser("Browser").Page("Flight Reservation").WebImage("Infant").Click 1,3
+Browser("Browser").Page("Flight Reservation").WebImage("Search").Click
+Browser("Browser").Page("Flight Reservation").Check.Checkpoint("Search result")
+---ORDER---
+Browser("Browser").Page("Flight Reservation").WebButton("ORDER").Click
+Browser("Browser").Page("Flight Reservation").WebObject("Booking Successful").WaitProperty "Visible", true, 5000
